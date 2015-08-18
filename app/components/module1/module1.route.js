@@ -1,12 +1,13 @@
 (function() {
 	'use strict';
 	
-	module1.config(['$routeProvider', routeProvider]);
+	module1.config(['$stateProvider', '$urlRouterProvider', routeProvider]);
 	
-	function routeProvider($routeProvider) {
-		$routeProvider.when('/module1', {
-			templateUrl: 'components/module1/module1.html',
-			controller: 'Module1Ctrl'
+	function routeProvider($stateProvider, $urlRouterProvider) {
+		$stateProvider.state('module1', {
+			url: "/module1",
+			controller: 'Module1Ctrl',
+			templateUrl: "components/module1/module1.html"
 		});
 	}
 })();
