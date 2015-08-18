@@ -3,6 +3,16 @@
 This project is my customized version of [angular-seed](https://github.com/angular/angular-seed).
 For project usage, you can refer to the original project.
 
+## Example components
+
+All examples can be found under `components` folder.
+
+### Module1
+This is the Hello world module. It demonstrates the structure of an Angular module and how pieces under a module play together.
+
+### Followers
+This is a simple program that shows followers of a Github user. It demonstrates the use of [smart-table](https://github.com/lorenzofox3/Smart-Table) with AJAX call.
+
 ## Directory Layout
 
 ```
