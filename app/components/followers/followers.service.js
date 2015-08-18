@@ -1,33 +1,44 @@
 (function() {
 	'use strict';
 	
-	followersModule.service('module2Service', [module2Service]);
+	followersModule.service('followerService', ['$q', '$http', followerService]);
 	
-	function module2Service() {
-		var foo;
-		var bar;
+	function followerService($q, $http) {
 		
-		function getFoo() {
-			return foo;
+		var followers;
+		var linkHeader;
+		
+		function getFollowers() {
+			return followers;
 		}
 		
-		function setFoo(value) {
-			foo = value;
+		function fetchFollowers(username, page) {
+			return $q(function(resolve, reject) {
+				$http.get('https://api.github.com/users/' + username + '/followers?page=' + page).success(function(response, status, headers) {
+					followers = response;
+					linkHeader = headers('Link');
+					resolve();
+				}).error(function(err, status) {
+					reject(err, status);
+				});
+			});
 		}
 		
-		function getBar() {
-			return bar;
-		}
-		
-		function setBar(value) {
-			bar = value;
+		function getNumberOfDisplayedPages() {
+			var links = linkHeader.split(',');
+			var lastPattern = ">; rel=\"last\"";
+			var lastLink = _.find(links, function(link) {
+				return link.indexOf(lastPattern, link.length - lastPattern.length) !== -1;
+			}); // something like <https://api.github.com/user/4732/followers?page=269>; rel="last"
+			lastLink = lastLink.substr(0, lastLink.length-lastPattern.length); // something like <https://api.github.com/user/4732/followers?page=269
+			lastLink = lastLink.substr(lastLink.indexOf("=") + 1); // something like 269
+			return Number(lastLink) * 3;
 		}
 		
 		return {
-			getFoo: getFoo,
-			setFoo: setFoo,
-			getBar: getBar,
-			setBar: setBar
-		};
+			getFollowers: getFollowers,
+			fetchFollowers: fetchFollowers,
+			getNumberOfDisplayedPages: getNumberOfDisplayedPages			
+		}
 	}
 })();
