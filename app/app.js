@@ -3,8 +3,7 @@ var app = (function() {
   
   return angular.module('app', [
     'ngRoute',
-    'app.module1',
-    'app.version'
+    'app.module1'
   ]).
   
   config(['$routeProvider', function($routeProvider) {
