@@ -12,6 +12,9 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "underscore": "~1.8.3",
-    "ui-router": "~0.2.15"
+    "ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.13.3",
+    "angular-smart-table": "~2.1.2",
+    "bootstrap": "~3.3.5"
   }
 }

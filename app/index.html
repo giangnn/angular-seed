@@ -12,11 +12,13 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
   <ul class="menu">
     <li><a ui-sref="module1">module1</a></li>
+    <li><a ui-sref="followers">Github followers</a></li>
   </ul>
 
   <!--[if lt IE 7]>
@@ -30,11 +32,17 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/underscore/underscore-min.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
   <!--<script src="bower_components/angular-route/angular-route.js"></script>-->
   <script src="app.js"></script>
   <script src="components/module1/module1.js"></script>
   <script src="components/module1/module1.route.js"></script>
   <script src="components/module1/module1.service.js"></script>
   <script src="components/module1/module1.controller.js"></script>
+  <script src="components/followers/followers.js"></script>
+  <script src="components/followers/followers.route.js"></script>
+  <script src="components/followers/followers.service.js"></script>
+  <script src="components/followers/followers.controller.js"></script>
 </body>
 </html>
